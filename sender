@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import telebot
+import sys
+import time
+import os
+from telebot import apihelper
+
+token = '697588838:AAFO45xmaptLNPoKyNjQfJUyc1-NHBZqVx0'
+
+bot = telebot.TeleBot(token)
+#apihelper.proxy = {'http':'socks5://swcbbabh:aYEbh6q5gQ@rey.vivalaresistance.info:3306'}
+
+apihelper.proxy = {'https':'socks5://swcbbabh:aYEbh6q5gQ@rey.vivalaresistance.info:3306'}
+
+def sender():
+
+		try:
+			photo = open('tmp/photos/file_1.jpg', 'rb')
+			bot.send_photo('@geechan', photo)
+		except Exception as e:
+			bot.send_message('@geechan', e)
+			
+#@bot.message_handler(content_type=['text'])
+def id_ch():
+	bot.send_message('@geechan', 'lol')
+	return
+
+if __name__ == '__main__':
+	while True:
+		sender()
+		time.sleep(10)
+	bot.polling(none_stop=True)
+
+		
